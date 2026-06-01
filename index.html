@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>璧勬簮瀵艰埅绔?/title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-bottom: 1px solid #2a2a4a;
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  header p {
+    color: #8888aa;
+    font-size: 14px;
+  }
+  .search-bar {
+    max-width: 600px;
+    margin: 24px auto 0;
+    position: relative;
+  }
+  .search-bar input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 24px;
+    border: 1px solid #2a2a4a;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .search-bar input:focus { border-color: #6c63ff; }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  .category {
+    margin-bottom: 40px;
+  }
+  .category-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #6c63ff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .category-title .icon {
+    font-size: 20px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 10px;
+    padding: 16px;
+    text-decoration: none;
+    color: #c0c0d0;
+    transition: all 0.2s;
+    display: block;
+  }
+  .card:hover {
+    border-color: #6c63ff;
+    background: #1e1e35;
+    transform: translateY(-2px);
+    color: #ffffff;
+  }
+  .card-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #e0e0e0;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: #6a6a8a;
+    line-height: 1.4;
+  }
+  .card-tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #2a2a4a;
+    color: #8888cc;
+  }
+  .add-hint {
+    text-align: center;
+    color: #4a4a6a;
+    font-size: 13px;
+    margin-top: 8px;
+    padding: 12px;
+    border: 2px dashed #2a2a4a;
+    border-radius: 10px;
+  }
+  .add-hint a {
+    color: #6c63ff;
+    text-decoration: none;
+  }
+  .stats {
+    text-align: center;
+    padding: 20px;
+    color: #4a4a6a;
+    font-size: 12px;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #3a3a5a;
+    font-size: 12px;
+    border-top: 1px solid #1a1a2e;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>馃幆 璧勬簮瀵艰埅绔?/h1>
+  <p>浣犵殑涓汉璧勬簮鏀惰棌澶?路 闅忔椂闅忓湴璁块棶</p>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="馃攳 鎼滅储璧勬簮..." oninput="filterCards()">
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- UE -->
+  <div class="category" data-keyword="UE Unreal Engine">
+    <div class="category-title"><span class="icon">馃幃</span> UE锛圲nreal Engine锛?/div>
+    <div class="cards">
+      <a class="card" href="#" onclick="alert('鐐瑰嚮鍙充笂瑙掔紪杈戞寜閽紝鎴戞潵甯綘娣诲姞璧勬簮锛?)">
+        <div class="card-name">鉃?娣诲姞浣犵殑绗竴涓?UE 璧勬簮</div>
+        <div class="card-desc">鍦ㄨ繖閲屾坊鍔犺蒋浠躲€佹暀绋嬫垨宸ュ叿閾炬帴</div>
+        <span class="card-tag">寰呮坊鍔?/span>
+      </a>
+    </div>
+  </div>
+
+  <!-- AI -->
+  <div class="category" data-keyword="AI 浜哄伐鏅鸿兘 Stable Diffusion ComfyUI Midjourney">
+    <div class="category-title"><span class="icon">馃</span> AI锛堜汉宸ユ櫤鑳斤級</div>
+    <div class="cards">
+      <a class="card" href="#" onclick="alert('鐐瑰嚮鍙充笂瑙掔紪杈戞寜閽紝鎴戞潵甯綘娣诲姞璧勬簮锛?)">
+        <div class="card-name">鉃?娣诲姞浣犵殑 AI 璧勬簮</div>
+        <div class="card-desc">ComfyUI銆丼table Diffusion銆丷unway銆丩uma 绛?/div>
+        <span class="card-tag">寰呮坊鍔?/span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 涓夌淮寤烘ā -->
+  <div class="category" data-keyword="3D Blender Maya 涓夌淮寤烘ā C4D Cinema4D">
+    <div class="category-title"><span class="icon">馃搻</span> 涓夌淮寤烘ā</div>
+    <div class="cards">
+      <a class="card" href="#" onclick="alert('鐐瑰嚮鍙充笂瑙掔紪杈戞寜閽紝鎴戞潵甯綘娣诲姞璧勬簮锛?)">
+        <div class="card-name">鉃?娣诲姞浣犵殑涓夌淮寤烘ā璧勬簮</div>
+        <div class="card-desc">Blender銆?ds Max銆丮aya銆丆inema 4D 绛?/div>
+        <span class="card-tag">寰呮坊鍔?/span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 璐村浘涓庢潗璐?-->
+  <div class="category" data-keyword="璐村浘 鏉愯川 Substance Megascans Quixel">
+    <div class="category-title"><span class="icon">馃帹</span> 璐村浘涓庢潗璐?/div>
+    <div class="cards">
+      <a class="card" href="#" onclick="alert('鐐瑰嚮鍙充笂瑙掔紪杈戞寜閽紝鎴戞潵甯綘娣诲姞璧勬簮锛?)">
+        <div class="card-name">鉃?娣诲姞浣犵殑璐村浘鏉愯川璧勬簮</div>
+        <div class="card-desc">Substance銆丮egascans銆丵uixel 绛?/div>
+        <span class="card-tag">寰呮坊鍔?/span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 瀛︿範鏁欑▼ -->
+  <div class="category" data-keyword="鏁欑▼ 瀛︿範 Course Tutorial Udemy">
+    <div class="category-title"><span class="icon">馃摉</span> 瀛︿範鏁欑▼</div>
+    <div class="cards">
+      <a class="card" href="#" onclick="alert('鐐瑰嚮鍙充笂瑙掔紪杈戞寜閽紝鎴戞潵甯綘娣诲姞璧勬簮锛?)">
+        <div class="card-name">鉃?娣诲姞浣犵殑鏁欑▼璧勬簮</div>
+        <div class="card-desc">浠庨浂寮€濮嬬殑瀛︿範璧勬枡姹囨€?/div>
+        <span class="card-tag">寰呮坊鍔?/span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 鏉傜墿 -->
+  <div class="category" data-keyword="鏉傜墿 鍏朵粬宸ュ叿 鏁堢巼">
+    <div class="category-title"><span class="icon">馃摝</span> 鏉傜墿</div>
+    <div class="cards">
+      <a class="card" href="#" onclick="alert('鐐瑰嚮鍙充笂瑙掔紪杈戞寜閽紝鎴戞潵甯綘娣诲姞璧勬簮锛?)">
+        <div class="card-name">鉃?娣诲姞鏉傜墿绫昏祫婧?/div>
+        <div class="card-desc">鍏朵粬宸ュ叿鍜屾晥鐜囪蒋浠?/div>
+        <span class="card-tag">寰呮坊鍔?/span>
+      </a>
+    </div>
+  </div>
+
+  <!-- AE / PR / PS -->
+  <div class="category" data-keyword="AE PR PS Adobe After Effects Premiere Photoshop">
+    <div class="category-title"><span class="icon">馃幀</span> AE / PR / PS</div>
+    <div class="cards">
+      <a class="card" href="#" onclick="alert('鐐瑰嚮鍙充笂瑙掔紪杈戞寜閽紝鎴戞潵甯綘娣诲姞璧勬簮锛?)">
+        <div class="card-name">鉃?娣诲姞 Adobe 璧勬簮</div>
+        <div class="card-desc">After Effects銆丳remiere Pro銆丳hotoshop 绛?/div>
+        <span class="card-tag">寰呮坊鍔?/span>
+      </a>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+</div>
+
+<footer>
+  鐢?馃捇 鍜?鉂わ笍 鎼缓 路 GitHub Pages 鍏嶈垂鎵樼
+</footer>
+
+<script>
+function filterCards() {
+  var q = document.getElementById('searchInput').value.toLowerCase();
+  var categories = document.querySelectorAll('.category');
+  categories.forEach(function(cat) {
+    var cards = cat.querySelectorAll('.card');
+    var visible = 0;
+    cards.forEach(function(card) {
+      var text = card.textContent.toLowerCase();
+      if (text.includes(q) || q === '') {
+        card.style.display = 'block';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    cat.style.display = visible > 0 ? 'block' : 'none';
+  });
+  updateStats();
+}
+function updateStats() {
+  var total = document.querySelectorAll('.category').length;
+  var visible = document.querySelectorAll('.category[style="display: block"], .category:not([style])').length;
+  document.getElementById('stats').textContent = '鍏?' + visible + ' / ' + total + ' 涓垎绫?;
+}
+updateStats();
+</script>
+
+</body>
+</html>
